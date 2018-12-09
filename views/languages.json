@@ -1,0 +1,41 @@
+{
+	"en": {
+		"langdesc": "English",
+		"language" : "language",
+		"btnvideo" : "Download Video",
+		"btnaudio" : "Download Audio",
+		"vtitle" : "Youtube Video Downloader",
+		"atitle" : "Youtube Audio Downloader",
+		"vurl": "URL",
+		"vurlhelp": "copy youtube video url and paste here",
+		"vname": "file name",
+		"vnamehelp": "enter the file name here",
+		"aurl": "URL",
+		"aurlhelp": "copy youtube video url and paste here",
+		"aname": "file name",
+		"anamehelp": "enter the file name here"
+	},
+	"bm": {
+		"langdesc": "ျမန္မာ",
+		"language" : "ဘာသာစကား",
+		"btnvideo" : "ရုပ္ရွင္ ေဒါင္းရန္",
+		"btnaudio" : "သီခ်င္း ေဒါင္းရန္",
+		"vtitle" : "Youtube တြင္ ရုပ္ရွင္ ေဒါင္းရန္",
+		"atitle" : "Youtube တြင္ သီခ်င္း ေဒါင္းရန္",
+		"vurl": "လမ္းေၾကာင္း",
+		"vurlhelp": "ေဒတာလမ္းေၾကာင္းကို ဤေနရာတြင္ ထည့္ပါ",
+		"vname": "ဖိုင္ နာမည္ ေပးရန္",
+		"vnamehelp": "ဖိုင္ နာမည္ ကို ဤေနရာတြင္ ထည့္ပါ",
+		"aurl": "လမ္းေၾကာင္း",
+		"aurlhelp": "ေဒတာလမ္းေၾကာင္းကို ဤေနရာတြင္ ထည့္ပါ",
+		"aname": "ဖိုင္ နာမည္ ေပးရန္",
+		"anamehelp": "ဖိုင္ နာမည္ ကို ဤေနရာတြင္ ထည့္ပါ"
+	}
+}
+
+
+
+
+
+
+

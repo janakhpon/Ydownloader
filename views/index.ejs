@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <title>
+            GDown
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    </head>
+
+    <body onload="onLoad()">
+      <script type="text/javascript" src="multilang.js"></script>
+      <script type="text/javascript">
+          var multilang;
+          
+          function onLoad() {
+              // create object, load JSON file, default to 'nl', and callback to initList when ready loading
+              multilang = new MultiLang('languages.json', 'nl', this.initList);
+          }
+  
+          function langSelectChange(sel) {
+              // switch to selected language code
+              multilang.setLanguage(sel.value);
+              
+              // refresh labels
+              refreshLabels();
+          }
+  
+          function initList() {
+              // get language list element
+              var list = document.getElementsByName("listlanguages")[0];
+              // clear all options
+              list.options.length = 0;
+  
+              // add all available languages
+              for (var key in multilang.phrases) {
+                  // create new language option
+                  var lang = document.createElement("option");
+                  lang.value = key;
+                  lang.innerHTML = multilang.phrases[key]['langdesc'];
+  
+                  // append to select element
+                  list.appendChild(lang);
+              }
+          
+              refreshLabels();
+          }
+  
+          function refreshLabels() {
+  
+              // Basically do the following for all document elements:
+              //document.getElementById("Options").textContent = multilang.get("Options");
+  
+              // loop through all document elements
+              var allnodes = document.body.getElementsByTagName("*");
+  
+              for (var i=0, max=allnodes.length; i < max; i++) {
+                  // get id current elements
+                  var idname = allnodes[i].id;
+                  // if id exists, set get id current elements
+                  if (idname != '') {
+                      allnodes[i].textContent = multilang.get(idname);
+                  };
+              };
+          }
+      </script>
+  
+        <div class="container">
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" style="margin:5px;">
+                        <a class="navbar-brand" href="#">Gt Youtube Downloader</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <span class="nav-link" id="language">LANGUAGE</span>
+
+                        <select  class="nav-link" name="listlanguages" onchange="langSelectChange(this)">
+                        </select>
+                      </nav>
+
+        </div>
+
+
+        <div class="container" style="margin-top:5%; margin-bottom:10px; padding:10px; font-weight: bold; color:black;">
+                <hr>
+        </div>
+ 
+
+        <div class="container">
+
+
+            <div class="container text-center row align-center">
+
+
+
+                 
+              <div class="card col-5 rounded">
+                
+                  <div class="card-body">
+
+
+                    <h5 id="vtitle" class="card-title">Youtube တြင္ ရုပ္ရွင္ ေဒါင္းရန္</h5>
+                    <br>
+                    <form action="/video" method="POST">
+                      <div class="form-group">
+                        <label id="vurl"> ေဒတာလမ္းေၾကာင္း</label>
+                        <input type="text" name="videourl" class="form-control" >
+                        <small id="vurlhelp" class="form-text text-muted"> ေဒတာလမ္းေၾကာင္း ကို ဤေနရာတြင္ ထည့္ပါ</small>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label id="vname">ဖိုင္ နာမည္</label>
+                        <input type="text" name="videoname" class="form-control">
+                        <small id="vnamehelp" class="form-text text-muted">ဖိုင္ နာမည္ ကို ဤေနရာတြင္ ထည့္ပါ</small>
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-primary btn-block" id="btnvideo">ရုပ္ရွင္ ေဒါင္းရန္</button>
+                    </form>
+
+
+                  </div>
+               
+              </div>
+              <div class="col-1">
+
+              </div>
+
+              <div class="card col-5 rounded">
+
+                <div class="card-body">
+                    <h5 id="atitle" class="card-title">Youtube တြင္ သီခ်င္း ေဒါင္းရန္</h5>
+                    <br>
+                    <form action="/audio" method="POST">
+                        <div class="form-group">
+                          <label id="aurl"> ေဒတာလမ္းေၾကာင္း</label>
+                          <input type="text" name="audiourl" class="form-control" >
+                          <small id="aurlhelp" class="form-text text-muted">ေဒတာလမ္းေၾကာင္း ကို ဤေနရာတြင္ ထည့္ပါ</small>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label id="aname">ဖိုင္ နာမည္</label>
+                          <input type="text" name="audioname" class="form-control">
+                          <small id="anamehelp" class="form-text text-muted">ဖိုင္ နာမည္ ကို ဤေနရာတြင္ ထည့္ပါ</small>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block" id="btnaudio">သီခ်င္း ေဒါင္းရန္</button>
+                      </form>
+
+                </div>
+
+              </div>
+
+
+
+            </div>
+               
+                    
+
+        </div>
+
+        <div class="container" style="margin-top:10px; margin-bottom:10px; padding:10px; font-weight: bold; color:black;">
+                <hr>
+        </div>
+ 
+       <div class="container" style="padding-top: 60px; position:fixed; margin-bottom:2px; bottom: 0; left: 0; right: 0;">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-dark">
+                             <li style="margin-right:25%; color:#0078D7;">GREENTECH INNOVATION GROUP, MYANMAR</li>
+                            <li style="margin-left:20%; color:#0078D7;">@COPYRIGHT 2018</li>
+                        </ol>
+                     </nav>
+
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
